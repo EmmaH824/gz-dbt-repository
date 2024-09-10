@@ -10,6 +10,4 @@ SELECT
     ,ROUND(SUM(quantity),2) AS total_products_sold
 
 FROM {{ref("int_orders_operational")}}
-JOIN {{ref("stg_raw__ship")}}
-USING (orders_id)
 GROUP BY date_date
