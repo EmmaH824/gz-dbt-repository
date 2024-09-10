@@ -72,7 +72,24 @@ models:
                 tests:
                   - unique:
                       column_name: "(orders_id || '-' || products_id)"
-
+              - name: int_orders_margin
+                description: finding order margin
+                columns:
+                - name: orders_id
+                  description: id of each order
+                  tests:
+                    - unique
+                    - not_null
+                - name: date_date
+                  description: date grouped
+                - name: revenue
+                  description: sum of revenue
+                - name: quantity
+                  description: sum of quantity
+                - name: purchase_cost
+                  description: sum of purchase cost
+                - name: margin
+                  description: sum of margin
 
 
 
