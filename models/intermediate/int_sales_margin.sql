@@ -1,5 +1,9 @@
 SELECT 
-    products_id
+    date_date
+    ,orders_id
+    ,revenue
+    ,quantity
+    ,products_id
     ,quantity*purchase_price AS purchase_cost
     ,revenue - (quantity*purchase_price) AS margin
 FROM
