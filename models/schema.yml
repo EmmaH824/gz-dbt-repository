@@ -19,23 +19,32 @@ sources:
               description: revenue raised on each product
             - name: quantity
               description: number of each product purchased within this order
+          tests:
+            - unique:
+                column_name: "(orders_id || '-' || products_id)"
         - name: product
           identifier: raw_gz_product
           description: products_id stored alongside purchase price for each of these products
           columns:
             - name: products_id
-              description: unique identifier of each product
+              description: unique identifier of each product, primary key
             - name: purchase_price
               description: price paid to acquire each individual product
+          tests:
+            - unique:
+                column_name: "(products_id)"  
         - name: ship
           identifier: raw_gz_ship
           description: details of shipping fee(income) and log and ship costs against each orders_id
           columns:
             - name: orders_id
-              description: unique identifier of each order
+              description: unique identifier of each order, primary key
             - name: shipping_fee
               description: income paid for shipping
             - name: logCost
               description: logisitics costs in shipping order
             - name: ship_cost
               description: cost of shipping order
+          tests:
+            - unique:
+                column_name: "(orders_id)"
