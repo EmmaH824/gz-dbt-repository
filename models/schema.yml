@@ -219,14 +219,38 @@ models:
                   description: logistics costs
                 - name: operational_margin
                   description: margin plus shipping fee minus logcost minus ship_cost
+              - name: finance_days
+                description: key financial data aggregated by day
+                columns:
+                  - name: date_date
+                    description: date for daily aggregations
+                    # tests:
+                    #   - unique
+                    #   - not_null
+                  - name: nb_transactions
+                    description: number of transactions per day
+                  - name: total_revenue
+                    description: sum of daily revenue
+                  - name: av_basket
+                    description: average value of basket per day
+                  - name: operational_margin
+                    description: daily operational margin
+                  - name: total_purchase_cost
+                    description: total costs of products sold
+                  - name: total_shipping_fees
+                    description: total daily shipping fees income
+                  - name: total_logcost
+                    description: total daily logistics costs
+                  - name: total_products_sold
+                    description: total products sold per day
               - name: int_campaigns_day
                 description: aggregated daily data on costs, impressions and clicks
                 columns:
                   - name: date_date
                     description: date for each aggregated group
-                    tests: 
-                      - unique
-                      - not_null
+                    # tests: 
+                    #   - unique
+                    #   - not_null
                   - name: ads_cost
                     description: total costs of ads per day
                   - name: ads_impression

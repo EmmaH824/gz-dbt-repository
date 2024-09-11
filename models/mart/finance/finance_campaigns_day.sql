@@ -1,5 +1,5 @@
 SELECT 
-    finance_days.date_date
+    icd.date_date
     ,ROUND((operational_margin - ads_cost),2) AS ads_margin
     ,av_basket
     ,operational_margin
@@ -12,7 +12,7 @@ SELECT
     ,ads_cost
     ,ads_impression
     ,ads_clicks
-FROM {{ref("int_campaigns_day")}}
+FROM {{ref("int_campaigns_day")}} icd
 JOIN {{ref("finance_days")}}
 USING (date_date)
 ORDER BY date_date DESC
