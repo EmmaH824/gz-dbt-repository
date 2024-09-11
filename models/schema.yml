@@ -51,6 +51,107 @@ sources:
               description: logisitics costs in shipping order
             - name: ship_cost
               description: cost of shipping order
+        - name: adwords
+          identifier: raw_gz_adwords
+          description: data from adwords for gz
+          columns:
+           - name: date_date
+             description: date details
+             tests:
+                - not_null
+           - name: paid_source
+             description: source of ads
+           - name: campaign_key
+             description: key of specific campaign ad is associated with
+             tests:
+                - not_null
+           - name: campgn_name
+             description: name of specific campaign, note column name changed in staging
+           - name: ads_cost
+             description: cost of this ad, not cast as float64 in staging
+           - name: impression
+             description: number of impressions for this ad
+           - name: click
+             description: number of clicks from this ad
+          tests:
+           - unique:
+              column_name: "(date_date || '-' || campaign_key)"
+        - name: bing
+          identifier: raw_gz_bing
+          description: data from bing for gz
+          columns:
+           - name: date_date
+             description: date details
+             tests:
+                - not_null
+           - name: paid_source
+             description: source of ads
+           - name: campaign_key
+             description: key of specific campaign ad is associated with
+             tests:
+                - not_null
+           - name: campgn_name
+             description: name of specific campaign, note column name changed in staging
+           - name: ads_cost
+             description: cost of this ad, not cast as float64 in staging
+           - name: impression
+             description: number of impressions for this ad
+           - name: click
+             description: number of clicks from this ad
+          tests:
+           - unique:
+              column_name: "(date_date || '-' || campaign_key)"
+        - name: criteo
+          identifier: raw_gz_criteo
+          description: data from criteo for gz
+          columns:
+           - name: date_date
+             description: date details
+             tests:
+                - not_null
+           - name: paid_source
+             description: source of ads
+           - name: campaign_key
+             description: key of specific campaign ad is associated with
+             tests:
+                - not_null
+           - name: campgn_name
+             description: name of specific campaign, note column name changed in staging
+           - name: ads_cost
+             description: cost of this ad, not cast as float64 in staging
+           - name: impression
+             description: number of impressions for this ad
+           - name: click
+             description: number of clicks from this ad
+          tests:
+           - unique:
+              column_name: "(date_date || '-' || campaign_key)"
+        - name: facebook
+          identifier: raw_gz_facebook
+          description: data from facebook for gz
+          columns:
+           - name: date_date
+             description: date details
+             tests:
+                - not_null
+           - name: paid_source
+             description: source of ads
+           - name: campaign_key
+             description: key of specific campaign ad is associated with
+             tests:
+                - not_null
+           - name: campgn_name
+             description: name of specific campaign, note column name changed in staging
+           - name: ads_cost
+             description: cost of this ad, not cast as float64 in staging
+           - name: impression
+             description: number of impressions for this ad
+           - name: click
+             description: number of clicks from this ad
+          tests:
+           - unique:
+              column_name: "(date_date || '-' || campaign_key)"
+          
 models:
               - name: int_sales_margin
                 description: finding sales margin
@@ -118,3 +219,73 @@ models:
                   description: logistics costs
                 - name: operational_margin
                   description: margin plus shipping fee minus logcost minus ship_cost
+              - name: finance_days
+                description: key financial data aggregated by day
+                columns:
+                  - name: date_date
+                    description: date for daily aggregations
+                    # tests:
+                    #   - unique
+                    #   - not_null
+                  - name: nb_transactions
+                    description: number of transactions per day
+                  - name: total_revenue
+                    description: sum of daily revenue
+                  - name: av_basket
+                    description: average value of basket per day
+                  - name: operational_margin
+                    description: daily operational margin
+                  - name: total_purchase_cost
+                    description: total costs of products sold
+                  - name: total_shipping_fees
+                    description: total daily shipping fees income
+                  - name: total_logcost
+                    description: total daily logistics costs
+                  - name: total_products_sold
+                    description: total products sold per day
+              - name: int_campaigns_day
+                description: aggregated daily data on costs, impressions and clicks
+                columns:
+                  - name: date_date
+                    description: date for each aggregated group
+                    tests: 
+                      - unique
+                      - not_null
+                  - name: ads_cost
+                    description: total costs of ads per day
+                  - name: ads_impression
+                    description: total number of impressions per day
+                  - name: ads_clicks
+                    description: total number of clicks per day
+              - name: finance_campaigns_day
+                description: Mart model including ads_margin calculation
+                columns:
+                  - name: finance_days.date_date
+                    description: date for daily aggregations
+                    # tests:
+                    #   - unique
+                    #   - not_null
+                  - name: ads_margin
+                    description: margin calculated from operational margin minus ads cost
+                  - name: av_basket
+                    description: average value of basket per day
+                  - name: operational_margin
+                    description: daily operational margin
+                  - name: nb_transactions
+                    description: number of transactions per day
+                  - name: total_revenue
+                    description: sum of daily revenue
+                  - name: total_purchase_cost
+                    description: total costs of products sold
+                  - name: total_shipping_fees
+                    description: total daily shipping fees income
+                  - name: total_logcost
+                    description: total daily logistics costs
+                  - name: total_products_sold
+                    description: total products sold per day
+                  - name: ads_cost
+                    description: total ads costs per day
+                  - name: ads_impression
+                    description: number of impressions per day
+                  - name: ads_clicks
+                    description: number of clicks per day
