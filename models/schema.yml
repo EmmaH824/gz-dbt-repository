@@ -226,7 +226,7 @@ models:
                     description: date for each aggregated group
                     tests: 
                       - unique
-                      - not null
+                      - not_null
                   - name: ads_cost
                     description: total costs of ads per day
                   - name: ads_impression
