@@ -233,3 +233,35 @@ models:
                     description: total number of impressions per day
                   - name: ads_clicks
                     description: total number of clicks per day
+              - name: finance_campaigns_day
+                description: Mart model including ads_margin calculation
+                columns:
+                  - name: finance_days.date_date
+                    description: date for daily aggregations
+                    tests:
+                      - unique
+                      - not_null
+                  - name: ads_margin
+                    description: margin calculated from operational margin minus ads cost
+                  - name: av_basket
+                    description: average value of basket per day
+                  - name: operational_margin
+                    description: daily operational margin
+                  - name: nb_transactions
+                    description: number of transactions per day
+                  - name: total_revenue
+                    description: sum of daily revenue
+                  - name: total_purchase_cost
+                    description: total costs of products sold
+                  - name: total_shipping_fees
+                    description: total daily shipping fees income
+                  - name: total_logcost
+                    description: total daily logistics costs
+                  - name: total_products_sold
+                    description: total products sold per day
+                  - name: ads_cost
+                    description: total ads costs per day
+                  - name: ads_impression
+                    description: number of impressions per day
+                  - name: ads_clicks
+                    description: number of clicks per day
