@@ -57,10 +57,14 @@ sources:
           columns:
            - name: date_date
              description: date details
+             tests:
+                - not_null
            - name: paid_source
              description: source of ads
            - name: campaign_key
              description: key of specific campaign ad is associated with
+             tests:
+                - not_null
            - name: campgn_name
              description: name of specific campaign, note column name changed in staging
            - name: ads_cost
@@ -69,16 +73,23 @@ sources:
              description: number of impressions for this ad
            - name: click
              description: number of clicks from this ad
+          tests:
+           - unique:
+              column_name: "(date_date || '-' || campaign_key)"
         - name: bing
           identifier: raw_gz_bing
           description: data from bing for gz
           columns:
            - name: date_date
              description: date details
+             tests:
+                - not_null
            - name: paid_source
              description: source of ads
            - name: campaign_key
              description: key of specific campaign ad is associated with
+             tests:
+                - not_null
            - name: campgn_name
              description: name of specific campaign, note column name changed in staging
            - name: ads_cost
@@ -87,16 +98,23 @@ sources:
              description: number of impressions for this ad
            - name: click
              description: number of clicks from this ad
+          tests:
+           - unique:
+              column_name: "(date_date || '-' || campaign_key)"
         - name: criteo
           identifier: raw_gz_criteo
           description: data from criteo for gz
           columns:
            - name: date_date
              description: date details
+             tests:
+                - not_null
            - name: paid_source
              description: source of ads
            - name: campaign_key
              description: key of specific campaign ad is associated with
+             tests:
+                - not_null
            - name: campgn_name
              description: name of specific campaign, note column name changed in staging
            - name: ads_cost
@@ -105,16 +123,23 @@ sources:
              description: number of impressions for this ad
            - name: click
              description: number of clicks from this ad
+          tests:
+           - unique:
+              column_name: "(date_date || '-' || campaign_key)"
         - name: facebook
           identifier: raw_gz_facebook
           description: data from facebook for gz
           columns:
            - name: date_date
              description: date details
+             tests:
+                - not_null
            - name: paid_source
              description: source of ads
            - name: campaign_key
              description: key of specific campaign ad is associated with
+             tests:
+                - not_null
            - name: campgn_name
              description: name of specific campaign, note column name changed in staging
            - name: ads_cost
@@ -123,6 +148,9 @@ sources:
              description: number of impressions for this ad
            - name: click
              description: number of clicks from this ad
+          tests:
+           - unique:
+              column_name: "(date_date || '-' || campaign_key)"
           
 models:
               - name: int_sales_margin
