@@ -51,6 +51,27 @@ sources:
               description: logisitics costs in shipping order
             - name: ship_cost
               description: cost of shipping order
+        - name: adwords
+          identifier: raw_gz_adwords
+          description: data from adwords for gz
+          columns:
+           - name: date_date,
+           - name: paid_source,
+           - name: campaign_key,
+           - name: campgn_name,
+           - name: ads_cost,
+           - name: impression,
+           - name: click
+        - name: bing
+          identifier: raw_gz_bing
+          description: data from bing for gz
+        - name: criteo
+          identifier: raw_gz_criteo
+          description: data from criteo for gz
+        - name: facebook
+          identifier: raw_gz_facebook
+          description: data from facebook for gz
+          
 models:
               - name: int_sales_margin
                 description: finding sales margin
