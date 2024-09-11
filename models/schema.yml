@@ -55,22 +55,74 @@ sources:
           identifier: raw_gz_adwords
           description: data from adwords for gz
           columns:
-           - name: date_date,
-           - name: paid_source,
-           - name: campaign_key,
-           - name: campgn_name,
-           - name: ads_cost,
-           - name: impression,
+           - name: date_date
+             description: date details
+           - name: paid_source
+             description: source of ads
+           - name: campaign_key
+             description: key of specific campaign ad is associated with
+           - name: campgn_name
+             description: name of specific campaign, note column name changed in staging
+           - name: ads_cost
+             description: cost of this ad, not cast as float64 in staging
+           - name: impression
+             description: number of impressions for this ad
            - name: click
+             description: number of clicks from this ad
         - name: bing
           identifier: raw_gz_bing
           description: data from bing for gz
+          columns:
+           - name: date_date
+             description: date details
+           - name: paid_source
+             description: source of ads
+           - name: campaign_key
+             description: key of specific campaign ad is associated with
+           - name: campgn_name
+             description: name of specific campaign, note column name changed in staging
+           - name: ads_cost
+             description: cost of this ad, not cast as float64 in staging
+           - name: impression
+             description: number of impressions for this ad
+           - name: click
+             description: number of clicks from this ad
         - name: criteo
           identifier: raw_gz_criteo
           description: data from criteo for gz
+          columns:
+           - name: date_date
+             description: date details
+           - name: paid_source
+             description: source of ads
+           - name: campaign_key
+             description: key of specific campaign ad is associated with
+           - name: campgn_name
+             description: name of specific campaign, note column name changed in staging
+           - name: ads_cost
+             description: cost of this ad, not cast as float64 in staging
+           - name: impression
+             description: number of impressions for this ad
+           - name: click
+             description: number of clicks from this ad
         - name: facebook
           identifier: raw_gz_facebook
           description: data from facebook for gz
+          columns:
+           - name: date_date
+             description: date details
+           - name: paid_source
+             description: source of ads
+           - name: campaign_key
+             description: key of specific campaign ad is associated with
+           - name: campgn_name
+             description: name of specific campaign, note column name changed in staging
+           - name: ads_cost
+             description: cost of this ad, not cast as float64 in staging
+           - name: impression
+             description: number of impressions for this ad
+           - name: click
+             description: number of clicks from this ad
           
 models:
               - name: int_sales_margin
