@@ -248,9 +248,9 @@ models:
                 columns:
                   - name: date_date
                     description: date for each aggregated group
-                    # tests: 
-                    #   - unique
-                    #   - not_null
+                    tests: 
+                      - unique
+                      - not_null
                   - name: ads_cost
                     description: total costs of ads per day
                   - name: ads_impression
@@ -262,9 +262,9 @@ models:
                 columns:
                   - name: finance_days.date_date
                     description: date for daily aggregations
-                    tests:
-                      - unique
-                      - not_null
+                    # tests:
+                    #   - unique
+                    #   - not_null
                   - name: ads_margin
                     description: margin calculated from operational margin minus ads cost
                   - name: av_basket
