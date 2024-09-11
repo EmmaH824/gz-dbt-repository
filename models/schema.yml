@@ -219,3 +219,17 @@ models:
                   description: logistics costs
                 - name: operational_margin
                   description: margin plus shipping fee minus logcost minus ship_cost
+              - name: int_campaigns_day
+                description: aggregated daily data on costs, impressions and clicks
+                columns:
+                  - name: date_date
+                    description: date for each aggregated group
+                    tests: 
+                      - unique
+                      - not null
+                  - name: ads_cost
+                    description: total costs of ads per day
+                  - name: ads_impression
+                    description: total number of impressions per day
+                  - name: ads_clicks
+                    description: total number of clicks per day
